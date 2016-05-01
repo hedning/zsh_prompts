@@ -79,13 +79,6 @@ prompt_gnzh_padding() {
 add-zsh-hook precmd prompt_gnzh_prcmd
 add-zsh-hook chpwd prompt_gnzh_prcmd
 
-
-# PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
-# ╰─$PR_PROMPT "
-# PROMPT="$prompt_line_1%F{white}${padding}%f
-# ╰─$PR_PROMPT "
-# RPROMPT="${return_code}"
-
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %f"
 
