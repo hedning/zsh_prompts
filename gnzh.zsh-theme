@@ -62,7 +62,8 @@ prompt_gnzh_padding() {
     if [[ -n "$git_radar" ]]; then
         git_radar="%F{white}%f${git_radar}"
     fi
-    local prompt_line_1a="%F{white}╭─${start}${current_dir}%F{white}${stop}%f"
+    local jobs="%(1j.─${start}%j${stop}─.)"
+    local prompt_line_1a="%F{white}╭─${jobs}${start}${current_dir}%F{white}${stop}%f"
     local prompt_line_1b="─${start}${user_host}%F{white}${stop}──"
     prompt_line_1="${prompt_line_1a}${prompt_line_1b}"
     local prompt_line_1_width=${#${(S%%)prompt_line_1//(\%([KF1]|)\{*\}|\%[Bbkf])}}
