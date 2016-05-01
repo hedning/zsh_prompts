@@ -51,7 +51,7 @@ prompt_gnzh_prcmd() {
     prompt_gnzh_padding
     PROMPT="$prompt_line_1
 ╰${p_char}$PR_PROMPT "
-    RPROMPT="${return_code} %F{white}${git_radar}"
+    RPROMPT="${return_code} %F{white}${git_radar}%f"
 }
 
 prompt_gnzh_padding() {
