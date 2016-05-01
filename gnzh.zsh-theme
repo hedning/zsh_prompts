@@ -15,15 +15,15 @@ local ascii_symbols=('-' '(' ')' '.' '`-' "> ")
 PROMPT_SYMBOLS=($unicode_symbols)
 
 # Check the UID
-local arrow=$PROMPT_SYMBOLS[6]
+local arrow="$PROMPT_SYMBOLS[6]"
 if [[ $UID -ne 0 ]]; then # normal user
   PR_USER='%F{yellow}%n%f'
   PR_USER_OP='%F{green}%#%f'
-  PR_PROMPT='${arrow}%f'
+  PR_PROMPT="${arrow}%f"
 else # root
   PR_USER='%F{red}%n%f'
   PR_USER_OP='%F{red}%#%f'
-  PR_PROMPT='%F{red}${arrow}%f'
+  PR_PROMPT="%F{red}${arrow}%f"
 fi
 
 # Check if we are on SSH or not
@@ -58,9 +58,6 @@ ${bottom_corner}${p_char}$PR_PROMPT "
 
 prompt_gnzh_padding() {
     git_radar="$(git-radar --zsh --fetch | sed -e 's/ //')"
-    if [[ -n "$git_radar" ]]; then
-        git_radar="%F{white}%f${git_radar}"
-    fi
     local jobs="%(1j.${p_char}${start}%j${stop}${p_char}.)"
     local prompt_line_1a="%F{white}${top_corner}${p_char}${jobs}${start}${current_dir}%F{white}${stop}%f"
     local prompt_line_1b="${start}${user_host}%F{white}${stop}${p_char}${p_char}"
