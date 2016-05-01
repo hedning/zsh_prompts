@@ -19,11 +19,11 @@ local arrow=$PROMPT_SYMBOLS[6]
 if [[ $UID -ne 0 ]]; then # normal user
   PR_USER='%F{yellow}%n%f'
   PR_USER_OP='%F{green}%#%f'
-  PR_PROMPT='➤%f'
+  PR_PROMPT='${arrow}%f'
 else # root
   PR_USER='%F{red}%n%f'
   PR_USER_OP='%F{red}%#%f'
-  PR_PROMPT='%F{red}➤%f'
+  PR_PROMPT='%F{red}${arrow}%f'
 fi
 
 # Check if we are on SSH or not
