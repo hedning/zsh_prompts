@@ -33,19 +33,10 @@ else
   PR_HOST='%F{yellow}%M%f' # no SSH
 fi
 
-
 return_code="%(?..%F{red}%? ↵%f)"
 
 user_host="${PR_USER}%F{cyan}@${PR_HOST}"
 current_dir="%F{blue}%~%f"
-local rvm_ruby=''
-if ${HOME}/.rvm/bin/rvm-prompt &> /dev/null; then # detect user-local rvm installation
-  rvm_ruby='%F{red}‹$(${HOME}/.rvm/bin/rvm-prompt i v g s)›%f'
-elif which rvm-prompt &> /dev/null; then # detect system-wide rvm installation
-  rvm_ruby='%F{red}‹$(rvm-prompt i v g s)›%f'
-elif which rbenv &> /dev/null; then # detect Simple Ruby Version Management
-  rvm_ruby='%F{red}‹$(rbenv version | sed -e "s/ (set.*$//")›%f'
-fi
 
 prompt_gnzh_prcmd() {
     local prompt_line_1
