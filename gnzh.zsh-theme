@@ -38,10 +38,6 @@ elif which rvm-prompt &> /dev/null; then # detect system-wide rvm installation
 elif which rbenv &> /dev/null; then # detect Simple Ruby Version Management
   rvm_ruby='%F{red}‹$(rbenv version | sed -e "s/ (set.*$//")›%f'
 fi
-git_branch='$(git-radar --zsh --fetch)'
-
-# print -P -n "╭─${user_host} ${current_dir} ${git_branch} b" | wc --chars # let it eat this line instead
-
 
 prompt_gnzh_prcmd() {
     local prompt_line_1
