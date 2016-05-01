@@ -59,7 +59,7 @@ ${bottom_corner}${p_char}$PR_PROMPT "
 prompt_gnzh_padding() {
     git_radar="$(git-radar --zsh --fetch | sed -e 's/ //')"
     local jobs="%(1j.${p_char}${start}%j${stop}${p_char}.)"
-    local prompt_line_1a="%F{white}${top_corner}${p_char}${jobs}${start}${current_dir}%F{white}${stop}%f"
+    local prompt_line_1a="%F{white}${top_corner}${p_char}${start}${current_dir}%F{white}${stop}${jobs}%f"
     local prompt_line_1b="${start}${user_host}%F{white}${stop}${p_char}${p_char}"
     prompt_line_1="${prompt_line_1a}${prompt_line_1b}"
 
