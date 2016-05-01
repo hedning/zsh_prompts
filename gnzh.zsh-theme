@@ -7,9 +7,9 @@ setopt prompt_subst
 local PR_USER PR_USER_OP PR_HOST
 
 # Unicode characters for padding and text brackets
-local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤")
+local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤" "↵")
 # Ascii characters for padding and text brackets
-local ascii_symbols=('-' '(' ')' '.' '`-' "> ")
+local ascii_symbols=('-' '(' ')' '.' '`-' "> " "<-ˊ")
 
 PROMPT_SYMBOLS=($unicode_symbols)
 
@@ -32,7 +32,7 @@ else
   PR_HOST='%F{yellow}%M%f' # no SSH
 fi
 
-return_code="%(?..%F{red}%? ↵%f)"
+return_code="%(?..%F{red}%? $PROMPT_SYMBOLS[7]%f)"
 
 user_host="${PR_USER}%F{cyan}@${PR_HOST}"
 current_dir="%F{blue}%~%f"
