@@ -48,12 +48,13 @@ prompt_gnzh_prcmd() {
     local git_radar
     local start='⎨'
     local stop='⎬'
+    local p_char='─'
 
     # The prompt will eat a line of the output
     print # let it eat this line instead
     prompt_gnzh_padding
     PROMPT="$prompt_line_1
-╰─$PR_PROMPT "
+╰${p_char}$PR_PROMPT "
     RPROMPT="${return_code} %F{white}${git_radar}"
 }
 
@@ -62,15 +63,15 @@ prompt_gnzh_padding() {
     if [[ -n "$git_radar" ]]; then
         git_radar="%F{white}%f${git_radar}"
     fi
-    local jobs="%(1j.─${start}%j${stop}─.)"
-    local prompt_line_1a="%F{white}╭─${jobs}${start}${current_dir}%F{white}${stop}%f"
-    local prompt_line_1b="─${start}${user_host}%F{white}${stop}──"
+    local jobs="%(1j.${p_char}${start}%j${stop}${p_char}.)"
+    local prompt_line_1a="%F{white}╭${p_char}${jobs}${start}${current_dir}%F{white}${stop}%f"
+    local prompt_line_1b="${start}${user_host}%F{white}${stop}${p_char}${p_char}"
     prompt_line_1="${prompt_line_1a}${prompt_line_1b}"
     local prompt_line_1_width=${#${(S%%)prompt_line_1//(\%([KF1]|)\{*\}|\%[Bbkf])}}
     local padding_size=$((COLUMNS - prompt_line_1_width))
     local padding
     if (( padding_size > 0)); then
-        eval "padding=\${(l:${padding_size}::─:)_empty_zz}"
+        eval "padding=\${(l:${padding_size}::${p_char}:)_empty_zz}"
     fi
     prompt_line_1="${prompt_line_1a}%F{white}${padding}${prompt_line_1b}"
     # print $padding
