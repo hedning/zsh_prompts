@@ -75,10 +75,7 @@ prompt_gnzh_padding() {
     fi
     prompt_line_1="${prompt_line_1a}%F{white}${padding}${prompt_line_1b}"
 }
+
 add-zsh-hook precmd prompt_gnzh_prcmd
 add-zsh-hook chpwd prompt_gnzh_prcmd
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %f"
-
 }
