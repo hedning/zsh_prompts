@@ -9,7 +9,7 @@ local PR_USER PR_USER_OP PR_HOST
 # Unicode characters for padding and text brackets
 local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤" "↵")
 # Ascii characters for padding and text brackets
-local ascii_symbols=('-' '(' ')' '.' '`-' "> " "<-ˊ")
+local ascii_symbols=('-' '(' ')' '.' '`-' ">" "<-ˊ")
 
 PROMPT_SYMBOLS=($unicode_symbols)
 
