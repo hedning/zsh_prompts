@@ -74,7 +74,6 @@ prompt_gnzh_padding() {
         eval "padding=\${(l:${padding_size}::${p_char}:)_empty_zz}"
     fi
     prompt_line_1="${prompt_line_1a}%F{white}${padding}${prompt_line_1b}"
-    # print $padding
 }
 add-zsh-hook precmd prompt_gnzh_prcmd
 add-zsh-hook chpwd prompt_gnzh_prcmd
