@@ -85,5 +85,6 @@ prompt_gnzh_padding() {
 }
 
 add-zsh-hook precmd prompt_gnzh_prcmd
+# chpwd hook for changing directory with keybinds
 add-zsh-hook chpwd prompt_gnzh_prcmd
 }
