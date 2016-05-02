@@ -5,13 +5,18 @@ setopt prompt_subst
 () {
 
 local PR_USER PR_USER_OP PR_HOST
+local encoding="unicode"
 
 # Unicode characters for padding and text brackets
 local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤" "↵")
 # Ascii characters for padding and text brackets
 local ascii_symbols=('-' '(' ')' '.' '`-' ">" "<-ˊ")
 
-PROMPT_SYMBOLS=($unicode_symbols)
+if [[ $encoding == "ascii" ]]; then
+    PROMPT_SYMBOLS=($ascii_symbols "ascii")
+else
+    PROMPT_SYMBOLS=($unicode_symbols "unicode")
+fi
 
 # Check the UID
 local arrow="$PROMPT_SYMBOLS[6]"
@@ -46,8 +51,10 @@ prompt_gnzh_prcmd() {
     local top_corner="$PROMPT_SYMBOLS[4]"
     local bottom_corner="$PROMPT_SYMBOLS[5]"
 
-    # The prompt will eat a line of the output
-    print # let it eat this line instead
+    # The prompt will eat a line of the output if we're using unicode
+    if [[ $PROMPT_SYMBOLS[-1] == "unicode" ]]; then
+        print # so let it eat this one
+    fi
     # Load the prompt_line
     prompt_gnzh_padding
     PROMPT="$prompt_line_1
