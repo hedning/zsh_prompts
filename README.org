@@ -1,0 +1,8 @@
+* Description
+
+A prompt with full line padding for ZSH. With ascii and unicode support.
+
+* Installation
+
+Put prompt_gnzh_setup in the zsh [[http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions][fpath]], and run 'autoload -U promptinit'.
+You can then use 'prompt gnzh' to load the prompt.
