@@ -1,8 +1,11 @@
-* Description
+** Description
 
 A prompt with full line padding for ZSH. With ascii and unicode support.
+Inspired by [[https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/gnzh.zsh-theme][gnzh-theme]] from oh-my-zsh and the built in adam2 prompt.
 
-* Installation
+** Installation
 
 Put prompt_gnzh_setup in the zsh [[http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions][fpath]], and run 'autoload -U promptinit'.
 You can then use 'prompt gnzh' to load the prompt.
+
+You'll need [[https://github.com/michaeldfallen/git-radar][git-radar]] in your path to get the git status.
