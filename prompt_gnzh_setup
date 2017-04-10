@@ -10,9 +10,12 @@ local PR_USER PR_USER_OP PR_HOST
 local encoding="unicode"
 
 # Unicode characters for padding and text brackets
-local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤" "↵")
+# local unicode_symbols=("─" "⎨" "⎬" "╭" "╰" "➤" "↵")
+# local unicode_symbols=("═" "╣" "╠" "╔" "╚" "═" "↵")
+local unicode_symbols=("─" "┤" "├" "╭" "╰" ">" "↵")
+# local unicode_symbols=("━" "┫" "┣" "┏" "┗" ">" "↵")
 # Ascii characters for padding and text brackets
-local ascii_symbols=('-' '(' ')' '.' '`-' ">" "<-ˊ")
+local   ascii_symbols=('-' '(' ')' '.' '`-' ">" "<-ˊ")
 
 if [[ $encoding == "ascii" ]]; then
     PROMPT_SYMBOLS=($ascii_symbols "ascii")
@@ -50,7 +53,7 @@ current_dir="%F{blue}%~%f"
 
 prompt_gnzh_prcmd() {
     local prompt_line_1
-    local git_radar
+    local git_radar=""
     local p_char="$PROMPT_SYMBOLS[1]"
     local start="$PROMPT_SYMBOLS[2]"
     local stop="$PROMPT_SYMBOLS[3]"
