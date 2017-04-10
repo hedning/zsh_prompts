@@ -39,6 +39,10 @@ else
   PR_HOST='%F{yellow}%M%f' # no SSH
 fi
 
+if [[ -n $NIX_STORE ]]; then
+  NIX_PROMPT='%F{green}nix%f'
+fi
+
 return_code="%(?..%F{red}%? $PROMPT_SYMBOLS[7]%f)"
 
 user_host="${PR_USER}%F{cyan}@${PR_HOST}"
@@ -69,7 +73,11 @@ prompt_gnzh_padding() {
         git_radar="$(git-radar --zsh --fetch | sed -e 's/ //')"
     fi
     local jobs="%(1j.${p_char}${start}%j${stop}${p_char}.)"
-    local prompt_line_left="%F{white}${top_corner}${p_char}${start}${current_dir}%F{white}${stop}${jobs}%f"
+    local nix=""
+    if [[ $NIX_PROMPT ]]; then
+        nix="${p_char}${start}${NIX_PROMPT}${stop}${p_char}"
+    fi
+    local prompt_line_left="%F{white}${top_corner}${p_char}${start}${current_dir}%F{white}${stop}${nix}${jobs}%f"
     local prompt_line_right="${start}${user_host}%F{white}${stop}${p_char}${p_char}"
     prompt_line_1="${prompt_line_left}${prompt_line_right}"
 
